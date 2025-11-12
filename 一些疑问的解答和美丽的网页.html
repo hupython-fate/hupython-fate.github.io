@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML部署与颜色指南</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin: 20px 0 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .color-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .color-item:hover {
+            transform: scale(1.05);
+        }
+
+        .color-preview {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .color-info {
+            padding: 10px;
+            background: white;
+        }
+
+        .color-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .color-code {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .note {
+            background-color: #e7f3ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        code {
+            background-color: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+        }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML文件部署与网页颜色指南</h1>
+            <p>学习如何将HTML文件部署到HTTP服务器，并掌握网页常用颜色及其名称</p>
+        </header>
+
+        <section class="card">
+            <h2>如何让HTML文件有HTTP地址</h2>
+            <p>要将本地HTML文件变成可通过HTTP地址访问的网页，您需要将其部署到Web服务器。以下是几种常用方法：</p>
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h3>使用本地开发服务器</h3>
+                    <p>对于开发和测试，您可以使用简单的本地HTTP服务器：</p>
+                    <pre># 使用Python（如果已安装）
+python -m http.server 8000
+
+# 使用Node.js和http-server
+npx http-server
+
+# 使用PHP
+php -S localhost:8000</pre>
+                    <p>然后在浏览器中访问 <code>http://localhost:8000</code></p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h3>使用在线代码平台</h3>
+                    <p>对于快速部署和分享，可以使用在线平台：</p>
+                    <ul>
+                        <li><strong>GitHub Pages</strong> - 免费托管静态网站</li>
+                        <li><strong>Netlify</strong> - 简单的拖放部署</li>
+                        <li><strong>Vercel</strong> - 特别适合前端项目</li>
+                        <li><strong>CodePen/JSFiddle</strong> - 在线代码编辑和分享</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h3>使用传统Web托管服务</h3>
+                    <p>购买域名和Web托管服务，通过FTP或控制面板上传文件：</p>
+                    <ul>
+                        <li>Bluehost, SiteGround, GoDaddy等提供商</li>
+                        <li>通过cPanel或FTP客户端上传HTML文件</li>
+                        <li>通过您的域名访问网站</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="note">
+                <p><strong>提示：</strong> 对于个人项目或演示，GitHub Pages是免费且简单的选择。只需创建一个GitHub仓库，上传HTML文件，然后在仓库设置中启用GitHub Pages功能。</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>网页常用颜色及其名称</h2>
+            <p>在CSS中，您可以使用颜色名称、十六进制值、RGB值等来定义颜色。以下是一些常用的颜色名称及其对应的十六进制值：</p>
+
+            <div class="color-grid">
+                <!-- 基本颜色 -->
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: red;">Red</div>
+                    <div class="color-info">
+                        <div class="color-name">Red</div>
+                        <div class="color-code">#FF0000</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: blue; color: white;">Blue</div>
+                    <div class="color-info">
+                        <div class="color-name">Blue</div>
+                        <div class="color-code">#0000FF</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: green; color: white;">Green</div>
+                    <div class="color-info">
+                        <div class="color-name">Green</div>
+                        <div class="color-code">#008000</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: yellow;">Yellow</div>
+                    <div class="color-info">
+                        <div class="color-name">Yellow</div>
+                        <div class="color-code">#FFFF00</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: purple; color: white;">Purple</div>
+                    <div class="color-info">
+                        <div class="color-name">Purple</div>
+                        <div class="color-code">#800080</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: orange;">Orange</div>
+                    <div class="color-info">
+                        <div class="color-name">Orange</div>
+                        <div class="color-code">#FFA500</div>
+                    </div>
+                </div>
+
+                <!-- 更多颜色 -->
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: pink;">Pink</div>
+                    <div class="color-info">
+                        <div class="color-name">Pink</div>
+                        <div class="color-code">#FFC0CB</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: brown; color: white;">Brown</div>
+                    <div class="color-info">
+                        <div class="color-name">Brown</div>
+                        <div class="color-code">#A52A2A</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: gray; color: white;">Gray</div>
+                    <div class="color-info">
+                        <div class="color-name">Gray</div>
+                        <div class="color-code">#808080</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: black; color: white;">Black</div>
+                    <div class="color-info">
+                        <div class="color-name">Black</div>
+                        <div class="color-code">#000000</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: white;">White</div>
+                    <div class="color-info">
+                        <div class="color-name">White</div>
+                        <div class="color-code">#FFFFFF</div>
+                    </div>
+                </div>
+
+                <div class="color-item">
+                    <div class="color-preview" style="background-color: cyan;">Cyan</div>
+                    <div class="color-info">
+                        <div class="color-name">Cyan</div>
+                        <div class="color-code">#00FFFF</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <p><strong>提示：</strong> CSS支持140多种标准颜色名称。除了这些基本颜色，您还可以使用十六进制值、RGB、RGBA、HSL和HSLA值来定义更多颜色。</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>在CSS中使用颜色的示例</h2>
+            <p>以下是如何在CSS中使用不同格式的颜色值：</p>
+
+            <pre><code>/* 使用颜色名称 */
+.header {
+    background-color: royalblue;
+    color: white;
+}
+
+/* 使用十六进制值 */
+.button {
+    background-color: #4CAF50;
+    color: #FFFFFF;
+}
+
+/* 使用RGB值 */
+.highlight {
+    background-color: rgb(255, 215, 0);
+}
+
+/* 使用RGBA值（带透明度） */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 使用HSL值 */
+.accent {
+    background-color: hsl(210, 100%, 50%);
+}</code></pre>
+        </section>
+
+        <footer>
+            <p>© 2023 HTML部署与颜色指南 | 学习资源</p>
+        </footer>
+    </div>
+</body>
+</html>

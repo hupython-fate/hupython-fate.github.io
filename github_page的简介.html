@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages 完整指南</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #24292e;
+            --secondary: #0366d6;
+            --accent: #28a745;
+            --light: #f6f8fa;
+            --dark: #1b1f23;
+            --border: #e1e4e8;
+            --text: #24292e;
+            --text-light: #586069;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #fafbfc;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #22863a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            margin-left: 10px;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .step-number {
+            background-color: var(--secondary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .step-content h3 {
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        
+        .code-block {
+            background-color: var(--dark);
+            color: #d1d5da;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            color: #79b8ff;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comparison-card h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .pros-cons {
+            list-style-type: none;
+        }
+        
+        .pros-cons li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .pros-cons .pro:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .pros-cons .con:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #cb2431;
+            font-weight: bold;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 25px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-github"></i>
+            </div>
+            <h1>GitHub Pages 完整指南</h1>
+            <p class="subtitle">学习如何免费部署您的静态网站，让全世界都能访问您的HTML项目</p>
+            <a href="#get-started" class="btn">开始使用</a>
+            <a href="#examples" class="btn btn-outline">查看示例</a>
+        </div>
+    </header>
+    
+    <section id="intro">
+        <div class="container">
+            <h2 class="section-title">什么是 GitHub Pages？</h2>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header" style="background-color: #28a745;">
+                        <i class="fas fa-rocket"></i> 免费托管
+                    </div>
+                    <div class="card-body">
+                        <p>GitHub Pages 是一项静态站点托管服务，直接从 GitHub 仓库获取 HTML、CSS 和 JavaScript 文件，通过构建过程运行这些文件，并发布网站。</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header" style="background-color: #0366d6;">
+                        <i class="fas fa-globe"></i> 全球访问
+                    </div>
+                    <div class="card-body">
+                        <p>部署在 GitHub Pages 上的网站可以通过公共互联网访问，您可以选择使用 GitHub 提供的免费域名或使用自己的自定义域名。</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header" style="background-color: #6f42c1;">
+                        <i class="fas fa-code-branch"></i> 版本控制
+                    </div>
+                    <div class="card-body">
+                        <p>利用 Git 版本控制系统的强大功能，您可以跟踪更改、回滚到早期版本，并与他人协作开发您的网站。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="get-started" style="background-color: var(--light);">
+        <div class="container">
+            <h2 class="section-title">如何开始使用 GitHub Pages</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>创建 GitHub 账户</h3>
+                    <p>如果您还没有 GitHub 账户，请先 <a href="https://github.com/join" target="_blank">注册一个免费账户</a>。</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>创建新仓库</h3>
+                    <p>登录 GitHub 后，创建一个新的仓库。仓库名称格式应为 <strong>username.github.io</strong>，其中 username 是您的 GitHub 用户名。</p>
+                    <div class="code-block">
+                        <span class="highlight">仓库名称示例:</span> johnsmith.github.io
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>上传 HTML 文件</h3>
+                    <p>将您的 HTML 文件和其他资源（CSS、JS、图片等）上传到仓库中。确保主页面命名为 <strong>index.html</strong>。</p>
+                    <div class="code-block">
+                        <span class="highlight">文件结构示例:</span><br>
+                        index.html<br>
+                        css/style.css<br>
+                        js/script.js<br>
+                        images/logo.png
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>启用 GitHub Pages</h3>
+                    <p>在仓库设置中，找到 "Pages" 部分，选择源分支（通常是 main 或 master），然后保存。</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>访问您的网站</h3>
+                    <p>几分钟后，您的网站将在 <strong>https://username.github.io</strong> 上线！</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">GitHub Pages 功能特性</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 15px;">支持的技术</h3>
+                        <ul class="feature-list">
+                            <li>静态 HTML、CSS 和 JavaScript</li>
+                            <li>Jekyll 静态站点生成器</li>
+                            <li>自定义域名支持</li>
+                            <li>HTTPS 加密</li>
+                            <li>自定义 404 页面</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 15px;">使用限制</h3>
+                        <ul class="feature-list">
+                            <li>仓库大小限制 1GB</li>
+                            <li>每月带宽限制 100GB</li>
+                            <li>每小时构建限制 10 次</li>
+                            <li>仅支持静态内容</li>
+                            <li>不支持服务器端代码</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="comparison">
+                <div class="comparison-card">
+                    <h3>GitHub Pages 优点</h3>
+                    <ul class="pros-cons">
+                        <li class="pro">完全免费使用</li>
+                        <li class="pro">与 GitHub 工作流无缝集成</li>
+                        <li class="pro">自动部署和版本控制</li>
+                        <li class="pro">支持自定义域名</li>
+                        <li class="pro">全球 CDN 加速</li>
+                    </ul>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>GitHub Pages 限制</h3>
+                    <ul class="pros-cons">
+                        <li class="con">仅支持静态网站</li>
+                        <li class="con">不支持服务器端语言</li>
+                        <li class="con">构建时间可能较长</li>
+                        <li class="con">无法处理表单数据</li>
+                        <li class="con">某些高级功能受限</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" style="background-color: var(--light);">
+        <div class="container">
+            <h2 class="section-title">常见问题解答</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">GitHub Pages 是免费的吗？</div>
+                <p>是的，GitHub Pages 对公共仓库完全免费。如果您想为私有仓库使用 GitHub Pages，需要 GitHub Pro 账户。</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">我可以使用自定义域名吗？</div>
+                <p>是的，您可以将自定义域名指向您的 GitHub Pages 网站。只需在仓库设置中添加自定义域名，并在您的域名注册商处配置 DNS 记录。</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">GitHub Pages 支持 PHP 或其他服务器端语言吗？</div>
+                <p>不支持。GitHub Pages 仅支持静态内容（HTML、CSS、JavaScript）。如果您需要服务器端功能，可以考虑使用其他服务如 Heroku、Netlify Functions 或 Vercel。</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">我的网站上线需要多长时间？</div>
+                <p>通常，在启用 GitHub Pages 后，您的网站会在 1-10 分钟内上线。后续的更改通常会在您推送到仓库后的 1-5 分钟内更新。</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="examples">
+        <div class="container">
+            <h2 class="section-title">GitHub Pages 网站示例</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 15px;">个人作品集</h3>
+                        <p>许多开发者使用 GitHub Pages 展示他们的项目和个人作品集。</p>
+                        <p style="margin-top: 15px;"><strong>示例:</strong> https://sarahdeveloper.github.io</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 15px;">项目文档</h3>
+                        <p>开源项目经常使用 GitHub Pages 托管项目文档和演示。</p>
+                        <p style="margin-top: 15px;"><strong>示例:</strong> https://docs.myproject.org</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body">
+                        <h3 style="margin-bottom: 15px;">技术博客</h3>
+                        <p>使用 Jekyll 或其他静态站点生成器创建的技术博客。</p>
+                        <p style="margin-top: 15px;"><strong>示例:</strong> https://techblog.example.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://pages.github.com/" target="_blank" class="btn">访问官方 GitHub Pages 网站</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-github"></i>
+            </div>
+            <p>GitHub Pages 让每个人都能轻松发布网站</p>
+            <div class="footer-links">
+                <a href="https://docs.github.com/cn/pages" target="_blank">官方文档</a>
+                <a href="https://github.com/features/pages" target="_blank">功能特性</a>
+                <a href="https://pages.github.com/" target="_blank">示例</a>
+                <a href="https://github.com/contact" target="_blank">支持</a>
+            </div>
+            <p style="margin-top: 20px; color: rgba(255, 255, 255, 0.6);">本指南仅用于教育目的</p>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // 添加简单的动画效果
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.card');
+            const windowHeight = window.innerHeight;
+            
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < windowHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // 初始化卡片动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // 触发一次滚动事件以初始化可见卡片
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>
