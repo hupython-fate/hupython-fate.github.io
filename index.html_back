@@ -1,0 +1,167 @@
+ <!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 声明文档类型为HTML5，指定语言为简体中文，提升兼容性和SEO -->
+<head>
+    <!-- 视口设置：适配移动端，宽度=device-width（跟随设备宽度），初始缩放1.0（修复你原拼写错误initai-scale→initial-scale） -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 字符编码：UTF-8保证中文等字符正常显示 -->
+    <meta charset="utf-8">
+    <!-- SEO相关：关键词，提升网站被搜索到的概率 -->
+    <meta name="keywords" content="爬虫胡,胡成健,HTML学习,个人网站,代码学习,资源整理">
+    <!-- SEO相关：网站描述，搜索结果中展示的简介 -->
+    <meta name="description" content="胡成健(爬虫胡)的个人网站，整理了HTML/CSS/JS学习资源、看过的动漫小说、朋友的作品等，帮助自己和他人循序渐进学习。">
+    <!-- 作者信息：标注网站开发者 -->
+    <meta name="author" content="爬虫胡(hu_cheng_jian)">
+    <!-- 自动刷新：5秒后跳转到指定网址（保留原有功能） -->
+    <meta name="refresh" content="5;https://huchengjian.dev/">
+    <!-- 网页标题：简洁清晰，符合SEO规范 -->
+    <title>胡成健的个人网站 | 学习资源与生活整理</title>
+    
+    <!-- 引入外部CSS样式文件（空元素，无结束标签） -->
+    <link rel="stylesheet" type="text/css" href="CSS样式/11_14_样式的转移与link元素.css">
+    <!-- 网页图标（favicon）：设置标签页小图标 -->
+    <link rel="icon" type="image/x-icon" href="图片/图标2.jpg">
+    
+    <!-- base标签：统一设置页面中所有链接的默认打开方式为新标签页（仅一个，符合规范） -->
+    <base target="_blank">
+</head>
+
+<body>
+    <!-- 页面整体容器：统一控制内边距、最大宽度，提升阅读体验 -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; font-family: 'Microsoft YaHei', sans-serif; line-height: 1.8;">
+        <!-- 网站头部/欢迎语：提升页面友好度 -->
+        <header style="text-align: center; margin: 30px 0; padding-bottom: 20px; border-bottom: 1px solid #eee;">
+            <h1 style="color: #2c3e50; font-size: 2em;">欢迎来到胡成健的个人网站！</h1>
+            <p style="color: #666; font-size: 1.1em;">
+                这里整理了学习资源、生活点滴，愿能帮到每一个来访的你 💛
+            </p>
+        </header>
+
+        <!-- 第一部分：按时间顺序的索引（核心板块） -->
+        <section style="margin: 40px 0;">
+            <h2 style="color: #3498db; border-left: 4px solid #3498db; padding-left: 10px;">一、按时间顺序的索引</h2>
+            <!-- 索引说明：解释设计初衷，保留原有文案 -->
+            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                <p style="color: #333;">
+                    为什么要建立以时间为顺序的索引？考虑到未来必然有些人会访问这个网站，也许是我自己，也许是我的朋友，还可能是我不相识的人。
+                    为了帮助人们更好的利用这个网站来提升自己，也为了降低人们学习时的认识负载，帮助人们循序渐进的学习。
+                </p>
+                <p style="color: #333;">
+                    如果这个网站能帮到你，那怕一分一毫，我也会感觉很开心，所以不用害羞，尽情利用这个网站吧。
+                </p>
+                <p style="color: #333;">
+                    如果你问我为什么要这么做，那么我只能说，因为我也曾受了其他人的许多帮助，没有他们，就没有如今的我。
+                </p>
+            </div>
+
+            <!-- 时间轴列表：按日期分类，样式统一，便于阅读 -->
+            <div style="margin: 20px 0;">
+                <p style="font-weight: 600; color: #2c3e50;">2025年11月11日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/11_11_html的第一个练习.html">1. HTML第一个练习</a> | 
+                    <a href="my_html/正式学习html的第一个程序.html">2. 正式学习HTML的第一个程序</a>
+                </p>
+
+                <p style="font-weight: 600; color: #2c3e50; margin-top: 10px;">2025年11月12日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/11_12_一个复习.html">1. HTML复习练习</a>
+                </p>
+
+                <p style="font-weight: 600; color: #2c3e50; margin-top: 10px;">2025年11月13日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/11_13_86不存在的战区.html">1. 86不存在的战区相关</a> | 
+                    <a href="my_html/SDN的博客和简介.html ">2. CSDN博客和简介（修复空格问题）</a>
+                </p>
+
+                <p style="font-weight: 600; color: #2c3e50; margin-top: 10px;">2025年11月14日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/矛盾论.html">1. 矛盾论</a> | 
+                    <a href="CSS样式/11_14_样式的转移与link元素.css">2. CSS样式转移与link元素</a>
+                </p>
+
+                <p style="font-weight: 600; color: #2c3e50; margin-top: 10px;">2025年11月15日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/11_15_javascript.html">1. JavaScript学习</a> | 
+                    <a href="CSS样式/11_15_css的注释.css">2. CSS注释练习</a>
+                </p>
+
+                <p style="font-weight: 600; color: #2c3e50; margin-top: 10px;">2025年11月16日</p>
+                <p style="margin-left: 20px;">
+                    <a href="my_html/11_16_br和span,换行和居部变色.html">1. br和span标签使用</a> | 
+                    <a href="about_me/index_me.html">2. 关于我</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- 第二部分：从AI获取的HTML文件 -->
+        <section style="margin: 40px 0;">
+            <h2 style="color: #3498db; border-left: 4px solid #3498db; padding-left: 10px;">二、从AI中获取的HTML文件</h2>
+            <div style="margin: 10px 0 0 20px;">
+                <p style="font-weight: 600; color: #2c3e50;">从depseek中获取的文件和指导</p>
+                <p>
+                    <a href="my_html/一些疑问的解答和美丽的网页.html">▶ 一些关于颜色的介绍</a><br>
+                    <a href="my_html/github_page的简介.html">▶ github_page的简介</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- 第三部分：按资源种类分类 -->
+        <section style="margin: 40px 0;">
+            <h2 style="color: #3498db; border-left: 4px solid #3498db; padding-left: 10px;">三、按资源种类分类</h2>
+            
+            <!-- 子分类1：动漫和小说 -->
+            <div style="margin: 15px 0 0 20px;">
+                <p style="font-weight: 600; color: #2c3e50;">我看过的动漫和小说的链接与简介</p>
+                <p>
+                    <a href="my_html/11_12_一个复习.html">▶ 东京小馋猫(喰种)的简介和传送门</a><br>
+                    <a href="my_html/11_13_86不存在的战区.html">▶ 86_不存在的战区的简介和传送门</a>
+                </p>
+            </div>
+
+            <!-- 子分类2：代码和技术博客 -->
+            <div style="margin: 15px 0 0 20px;">
+                <p style="font-weight: 600; color: #2c3e50;">我的一些代码和技术博客还有代码学习资源网站</p>
+                <p>
+                    <a href="my_html/11_11_html的第一个练习.html">▶ 小甲鱼的个人网站与简介</a><br>
+                    <a href="my_html/CSDN的博客和简介.html">▶ 我在CSDN的博客和简介</a>
+                </p>
+            </div>
+
+            <!-- 子分类3：文章 -->
+            <div style="margin: 15px 0 0 20px;">
+                <p style="font-weight: 600; color: #2c3e50;">一些文章</p>
+                <p>
+                    <a href="my_html/矛盾论.html">▶ 矛盾论</a>
+					<a href="my_html/2026_2_25_优质睡眠基本法.html">▶ 《优质睡眠基本法》</a>
+                </p>
+            </div>
+
+            <!-- 子分类4：朋友的小说 -->
+            <div style="margin: 15px 0 0 20px;">
+                <p style="font-weight: 600; color: #2c3e50;">我的朋友的小说们</p>
+                <p style="line-height: 2;">
+                    <a href="my_friend_story/远征军.html">▶ 我们的故事：一战风云（宇文月明著）</a><br>
+                    <a href="my_friend_story/远征军2.html">▶ 我们的故事：一战风云（宇文月明著）2</a><br>
+                    <a href="my_friend_story/远征军3.html">▶ 我们的故事：一战风云（宇文月明著）3</a><br>
+                    <a href="my_friend_story/远征军4.html">▶ 我们的故事：一战风云（宇文月明著）4</a><br>
+                    <a href="my_friend_story/远征军5.html">▶ 我们的故事：一战风云（宇文月明著）5</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- 第四部分：网站信息和资源整合 -->
+        <section style="margin: 40px 0;">
+            <h2 style="color: #3498db; border-left: 4px solid #3498db; padding-left: 10px;">四、关于本网站的信息和资源整合</h2>
+            <div style="margin: 10px 0 0 20px; line-height: 2;">
+                <a href="图片/index_img.html">📷 图片集的链接</a><br>
+                <a href="about_me/index_me.html">👤 关于我</a>
+            </div>
+        </section>
+
+        <!-- 页脚：补充网站说明，提升完整性 -->
+        <footer style="margin: 50px 0 20px; text-align: center; color: #999; font-size: 0.9em; padding-top: 20px; border-top: 1px solid #eee;">
+            <p>© 2025 胡成健(爬虫胡) 版权所有 | 本网站仅用于学习和资源整理</p>
+        </footer>
+    </div>
+</body>
+</html>
